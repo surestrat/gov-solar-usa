@@ -211,7 +211,7 @@ const BenefitsSection = () => {
 					<SectionHeading
 						title={
 							<span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
-								Why Americans Choose Solar in 2024
+								Why Americans Choose Solar in 2025
 							</span>
 						}
 						subtitle={
