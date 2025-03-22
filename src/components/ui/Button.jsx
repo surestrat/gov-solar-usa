@@ -1,79 +1,43 @@
-import { motion } from "framer-motion";
+import React from "react";
+
+const variants = {
+	primary:
+		"bg-usa-blue-500 hover:bg-usa-blue-600 text-white border-transparent",
+	secondary:
+		"bg-usa-red-500 hover:bg-usa-red-600 text-white border-transparent",
+	outline:
+		"bg-transparent border border-usa-blue-500 text-usa-blue-500 hover:bg-usa-blue-50",
+	ghost: "bg-transparent hover:bg-gray-100 text-usa-blue-500",
+	link: "bg-transparent underline text-usa-blue-500 hover:text-usa-blue-600 p-0",
+};
+
+const sizes = {
+	sm: "py-1 px-3 text-sm",
+	md: "py-2 px-4 text-base",
+	lg: "py-3 px-6 text-lg",
+};
 
 const Button = ({
 	children,
 	variant = "primary",
+	size = "md",
 	className = "",
-	onClick,
-	type = "button",
 	icon,
-	disabled = false,
-	isLoading = false,
+	iconPosition = "right",
+	...props
 }) => {
-	// Map variants to our custom classes
-	const variantClass = `btn-${variant}`;
-
-	const buttonClass = `btn ${variantClass} ${className} ${
-		disabled ? "opacity-70" : ""
-	}`;
-
-	// Animation variants
-	const buttonAnimation = {
-		rest: { scale: 1 },
-		hover: { scale: 1.03 },
-		tap: { scale: 0.97 },
-	};
+	const baseClasses =
+		"font-medium rounded transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-usa-blue-500 inline-flex items-center justify-center";
 
 	return (
-		<motion.button
-			initial="rest"
-			whileHover={!disabled ? "hover" : "rest"}
-			whileTap={!disabled ? "tap" : "rest"}
-			variants={buttonAnimation}
-			transition={{ duration: 0.2, ease: "easeInOut" }}
-			type={type}
-			className={buttonClass}
-			onClick={onClick}
-			disabled={disabled || isLoading}
-			style={disabled ? { cursor: "not-allowed" } : {}}
+		<button
+			className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
+			{...props}
 		>
-			{isLoading && (
-				<svg
-					style={{
-						marginLeft: "-0.25rem",
-						marginRight: "0.75rem",
-						height: "1.25rem",
-						width: "1.25rem",
-						animation: "spin 1s linear infinite",
-					}}
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-				>
-					<circle
-						style={{ opacity: "0.25" }}
-						cx="12"
-						cy="12"
-						r="10"
-						stroke="currentColor"
-						strokeWidth="4"
-					></circle>
-					<path
-						style={{ opacity: "0.75" }}
-						fill="currentColor"
-						d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-					></path>
-				</svg>
-			)}
-			<span style={{ position: "relative", zIndex: 10 }}>{children}</span>
-			{icon && (
-				<span
-					style={{ position: "relative", zIndex: 10, marginLeft: "0.5rem" }}
-				>
-					{icon}
-				</span>
-			)}
-		</motion.button>
+			{icon && iconPosition === "left" && <span className="mr-2">{icon}</span>}
+			{children}
+			{icon && iconPosition === "right" && <span className="ml-2">{icon}</span>}
+		</button>
 	);
 };
 

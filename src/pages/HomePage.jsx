@@ -243,28 +243,28 @@ const HomePage = () => {
 			<ProcessSection />
 
 			{/* Calculator Section */}
-			<section ref={calculatorRef} id="calculator">
+			{/* <section ref={calculatorRef} id="calculator">
 				<CalculatorSection
 					register={register}
 					watch={watch}
 					savings={savings}
 				/>
-			</section>
+			</section> */}
 
 			{/* Photo Gallery Section */}
 			<PhotoGallerySection images={galleryImages} />
 
 			{/* Environmental Impact Section */}
-			<EnvironmentalImpactSection />
+			{/* <EnvironmentalImpactSection /> */}
 
 			{/* Testimonials Section */}
-			<TestimonialsSection testimonials={testimonials} />
+			{/* <TestimonialsSection testimonials={testimonials} /> */}
 
 			{/* Trust Indicators */}
 			<TrustIndicators />
 
 			{/* Stats Section */}
-			<StatsSection />
+			{/* <StatsSection /> */}
 
 			{/* Contact Form Section */}
 			<section ref={contactFormRef} id="contact">

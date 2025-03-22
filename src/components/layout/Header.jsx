@@ -46,21 +46,16 @@ const Header = () => {
 						className="flex items-center"
 					>
 						<Sun
-							style={{
-								color: isScrolled ? "#B22234" : "white",
-								width: "2rem",
-								height: "2rem",
-							}}
+							className={`w-8 h-8 ${
+								isScrolled ? "text-[#B22234]" : "text-white"
+							}`}
 						/>
 						<span
-							style={{
-								color: isScrolled ? "#0052A5" : "white",
-								marginLeft: "0.5rem",
-								fontSize: "1.25rem",
-								fontWeight: "700",
-							}}
+							className={`ml-2 text-xl font-bold ${
+								isScrolled ? "text-[#0052A5]" : "text-white"
+							}`}
 						>
-							GovSolarUsa
+							USA-SolarEnergy
 						</span>
 					</motion.div>
 
@@ -71,16 +66,9 @@ const Header = () => {
 								<a
 									key={link.name}
 									href={link.href}
-									style={{
-										color: isScrolled ? "#0052A5" : "white",
-										fontSize: "0.875rem",
-										fontWeight: "500",
-										transition: "color 0.2s",
-									}}
-									onMouseOver={(e) => (e.target.style.color = "#B22234")}
-									onMouseOut={(e) =>
-										(e.target.style.color = isScrolled ? "#0052A5" : "white")
-									}
+									className={`text-sm font-medium transition-colors duration-200 hover:text-[#B22234] ${
+										isScrolled ? "text-[#0052A5]" : "text-white"
+									}`}
 								>
 									{link.name}
 								</a>
@@ -93,7 +81,7 @@ const Header = () => {
 									.scrollIntoView({ behavior: "smooth" })
 							}
 							variant={isScrolled ? "primary" : "secondary"}
-							icon={<ChevronRight style={{ width: "1rem", height: "1rem" }} />}
+							icon={<ChevronRight className="w-4 h-4" />}
 							className="text-sm"
 						>
 							Free Consultation
@@ -104,16 +92,14 @@ const Header = () => {
 					<div className="md:hidden">
 						<button
 							onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-							style={{
-								color: isScrolled ? "#0052A5" : "white",
-								padding: "0.5rem",
-								borderRadius: "0.5rem",
-							}}
+							className={`p-2 rounded-lg ${
+								isScrolled ? "text-[#0052A5]" : "text-white"
+							}`}
 						>
 							{mobileMenuOpen ? (
-								<X style={{ width: "1.5rem", height: "1.5rem" }} />
+								<X className="w-6 h-6" />
 							) : (
-								<Menu style={{ width: "1.5rem", height: "1.5rem" }} />
+								<Menu className="w-6 h-6" />
 							)}
 						</button>
 					</div>
@@ -137,13 +123,7 @@ const Header = () => {
 										key={link.name}
 										href={link.href}
 										onClick={() => setMobileMenuOpen(false)}
-										style={{
-											color: "#0052A5",
-											padding: "0.5rem",
-											transition: "color 0.2s",
-										}}
-										onMouseOver={(e) => (e.target.style.color = "#B22234")}
-										onMouseOut={(e) => (e.target.style.color = "#0052A5")}
+										className="text-[#0052A5] p-2 transition-colors duration-200 hover:text-[#B22234]"
 									>
 										{link.name}
 									</a>
@@ -155,8 +135,11 @@ const Header = () => {
 											.scrollIntoView({ behavior: "smooth" });
 										setMobileMenuOpen(false);
 									}}
-									variant="primary"
-									className="w-full text-center mt-2"
+									variant={isScrolled ? "primary" : "secondary"}
+									size="md"
+									className="font-medium"
+									icon={<ChevronRight className="w-4 h-4" />}
+									iconPosition="right"
 								>
 									Free Consultation
 								</Button>

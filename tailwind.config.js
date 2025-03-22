@@ -93,16 +93,78 @@ export default {
 					700: "#15803d",
 					800: "#166534",
 					900: "#14532d",
+					// Add slate for more modern UI elements
+				},
+				slate: {
+					50: "#f8fafc",
+					100: "#f1f5f9",
+					200: "#e2e8f0",
+					300: "#cbd5e1",
+					400: "#94a3b8",
+					500: "#64748b",
+					600: "#475569",
+					700: "#334155",
+					800: "#1e293b",
+					900: "#0f172a",
+					950: "#020617",
 				},
 			},
 			maxWidth: {
 				"8xl": "90rem",
 			},
+			screens: {
+				xs: "475px",
+				"2xl": "1536px",
+				"3xl": "1920px",
+			},
+			animation: {
+				"pulse-slow": "pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+				float: "float 6s ease-in-out infinite",
+			},
+			keyframes: {
+				float: {
+					"0%, 100%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-10px)" },
+				},
+			},
+			boxShadow: {
+				"glow-blue": "0 0 15px -3px rgba(59, 130, 246, 0.4)",
+				"glow-indigo": "0 0 15px -3px rgba(99, 102, 241, 0.4)",
+				"radial-gradient":
+					"radial-gradient(circle at center, var(--tw-gradient-stops))",
+			},
+			transitionProperty: {
+				height: "height",
+				spacing: "margin, padding",
+			},
+			perspective: {
+				1000: "1000px",
+			},
+			transformStyle: {
+				"preserve-3d": "preserve-3d",
+			},
 		},
 	},
-	// Make sure Tailwind processes your index.css file correctly
-	plugins: [],
-	// Add purge options if needed
+	plugins: [
+		// Your existing plugins...
+
+		// Add this plugin for the missing utilities
+		function ({ addUtilities }) {
+			const newUtilities = {
+				".perspective-1000": {
+					perspective: "1000px",
+				},
+				".transform-gpu": {
+					transform: "translateZ(0)",
+				},
+				".preserve-3d": {
+					transformStyle: "preserve-3d",
+				},
+			};
+			addUtilities(newUtilities);
+		},
+	],
+	// Ensure optimization in production
 	purge: {
 		enabled: process.env.NODE_ENV === "production",
 		content: ["./src/**/*.{js,jsx,ts,tsx}", "./index.html"],

@@ -39,7 +39,7 @@ const TrustIndicators = () => {
 							transition={{ delay: index * 0.1 }}
 							className="flex items-center gap-4 p-4"
 						>
-							<div className="flex-shrink-0">{indicator.icon}</div>
+							<div className="flex-shrink-0 p-2">{indicator.icon}</div>
 							<div>
 								<h3 className="font-semibold">{indicator.title}</h3>
 								<p className="text-sm text-gray-600">{indicator.description}</p>

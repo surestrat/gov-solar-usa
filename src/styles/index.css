@@ -2,81 +2,10 @@
 
 /* Base styles */
 :root {
-	/* USA Color Palette - Lighter Blue */
-	/* Primary colors */
-	--usa-blue: #0052a5; /* Lighter USA blue */
-	--usa-red: #b22234; /* Official USA flag red */
-	--usa-white: #ffffff; /* White */
-
-	/* Blue shades */
-	--usa-blue-50: #e6f0fa;
-	--usa-blue-100: #c0d9f0;
-	--usa-blue-200: #7fb3e3;
-	--usa-blue-300: #4991d6;
-	--usa-blue-400: #1a6fc9;
-	--usa-blue-500: #0052a5; /* Base blue - lighter than before */
-	--usa-blue-600: #004994;
-	--usa-blue-700: #004083;
-	--usa-blue-800: #003772;
-	--usa-blue-900: #002e61;
-
-	/* Red shades */
-	--usa-red-50: #fce9eb;
-	--usa-red-100: #f7c7cd;
-	--usa-red-200: #ef929c;
-	--usa-red-300: #e76a79;
-	--usa-red-400: #df4255;
-	--usa-red-500: #b22234; /* Base red */
-	--usa-red-600: #a11f2f;
-	--usa-red-700: #911b2a;
-	--usa-red-800: #811826;
-	--usa-red-900: #711421;
-
-	/* Gray tones */
-	--gray-50: #f9fafb;
-	--gray-100: #f3f4f6;
-	--gray-200: #e5e7eb;
-	--gray-300: #d1d5db;
-	--gray-400: #9ca3af;
-	--gray-500: #6b7280;
-	--gray-600: #4b5563;
-	--gray-700: #374151;
-	--gray-800: #1f2937;
-	--gray-900: #111827;
-
-	/* Gradients - updated with lighter blue */
-	--primary-gradient: linear-gradient(
-		135deg,
-		var(--usa-blue) 0%,
-		var(--usa-blue-700) 100%
-	);
-	--secondary-gradient: linear-gradient(
-		135deg,
-		var(--usa-red) 0%,
-		var(--usa-red-700) 100%
-	);
-	--red-white-gradient: linear-gradient(
-		135deg,
-		var(--usa-red) 0%,
-		var(--usa-white) 100%
-	);
-	--blue-white-gradient: linear-gradient(
-		135deg,
-		var(--usa-blue) 0%,
-		var(--usa-white) 100%
-	);
-	--patriotic-gradient: linear-gradient(
-		135deg,
-		var(--usa-red) 0%,
-		var(--usa-white) 50%,
-		var(--usa-blue) 100%
-	);
-
-	/* Shadows */
-	--card-shadow: 0px 10px 25px -5px rgba(0, 0, 0, 0.05);
-	--card-hover-shadow: 0px 15px 30px -5px rgba(0, 0, 0, 0.1);
-	--usa-blue-shadow: 0px 10px 25px -5px rgba(60, 59, 110, 0.25);
-	--usa-red-shadow: 0px 10px 25px -5px rgba(178, 34, 52, 0.25);
+	/* USA Color Palette - Core colors only */
+	--usa-blue: #0052a5;
+	--usa-red: #b22234;
+	--usa-white: #ffffff;
 }
 
 html {
@@ -86,153 +15,10 @@ html {
 body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		"Helvetica Neue", Arial, sans-serif;
-	color: var(--gray-800);
-	background-color: var(--usa-white);
 	-webkit-font-smoothing: antialiased;
 }
 
-/* Layout classes */
-.container {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 1rem;
-	padding-right: 1rem;
-}
-
-@media (min-width: 640px) {
-	.container {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-	}
-}
-
-@media (min-width: 1024px) {
-	.container {
-		padding-left: 2rem;
-		padding-right: 2rem;
-	}
-}
-
-.container-default {
-	max-width: 80rem; /* max-w-7xl */
-}
-
-.container-small {
-	max-width: 64rem; /* max-w-5xl */
-}
-
-.container-large {
-	max-width: 90rem; /* max-w-8xl */
-}
-
-/* Modern card design */
-.modern-card {
-	background-color: var(--usa-white);
-	border-radius: 1rem;
-	box-shadow: var(--card-shadow);
-	transition: all 0.3s;
-}
-
-.modern-card:hover {
-	box-shadow: var(--card-hover-shadow);
-	transform: translateY(-4px);
-}
-
-/* Gradient buttons */
-.gradient-btn {
-	position: relative;
-	overflow: hidden;
-	color: var(--usa-white);
-	font-weight: 500;
-	background: var(--primary-gradient);
-}
-
-.gradient-btn::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	opacity: 0;
-	transition: opacity 0.3s;
-	background: linear-gradient(
-		135deg,
-		var(--usa-blue-600) 20%,
-		var(--usa-blue-800) 100%
-	);
-}
-
-.gradient-btn:hover::before {
-	opacity: 1;
-}
-
-/* Button base style */
-.btn {
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.5rem;
-	font-weight: 500;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: all 0.3s;
-}
-
-/* Button variants */
-.btn-primary {
-	background: var(--primary-gradient);
-	color: var(--usa-white);
-	box-shadow: 0 4px 6px -1px rgba(60, 59, 110, 0.2);
-}
-
-.btn-primary:hover {
-	box-shadow: 0 10px 15px -3px rgba(60, 59, 110, 0.3);
-}
-
-.btn-secondary {
-	background: var(--secondary-gradient);
-	color: var(--usa-white);
-	box-shadow: 0 4px 6px -1px rgba(178, 34, 52, 0.2);
-}
-
-.btn-secondary:hover {
-	box-shadow: 0 10px 15px -3px rgba(178, 34, 52, 0.3);
-}
-
-.btn-outline {
-	border: 2px solid var(--usa-blue-500);
-	color: var(--usa-blue-600);
-}
-
-.btn-outline:hover {
-	background-color: var(--usa-blue-50);
-}
-
-.btn-link {
-	color: var(--usa-blue-600);
-	padding: 0;
-}
-
-.btn-link:hover {
-	color: var(--usa-blue-800);
-}
-
-.btn-dark {
-	background-color: var(--gray-900);
-	color: var(--usa-white);
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.btn-dark:hover {
-	background-color: var(--gray-800);
-}
-
-.btn-patriotic {
-	background: var(--patriotic-gradient);
-	color: var(--usa-white);
-	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* Blurred glass effect */
+/* Blurred glass effect - not easily done with Tailwind */
 .glass-effect {
 	background-color: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(8px);
@@ -240,188 +26,30 @@ body {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Animated underline */
-.animated-underline {
-	position: relative;
+/* Text gradient effect - keep for consistency */
+.text-gradient {
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
-.animated-underline::after {
-	content: "";
-	position: absolute;
-	width: 0;
-	height: 2px;
-	bottom: -2px;
-	left: 0;
-	background: var(--patriotic-gradient);
-	transition: width 0.3s ease;
+/* Animation for pulse effect */
+@keyframes pulse {
+	0% {
+		opacity: 0.4;
+		transform: scale(0.95);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.05);
+	}
+	100% {
+		opacity: 0.4;
+		transform: scale(0.95);
+	}
 }
 
-.animated-underline:hover::after {
-	width: 100%;
-}
-
-/* USA theme specific classes */
-.usa-bg-blue {
-	background-color: var(--usa-blue);
-	color: var(--usa-white);
-}
-
-.usa-bg-red {
-	background-color: var(--usa-red);
-	color: var(--usa-white);
-}
-
-.usa-text-blue {
-	color: var(--usa-blue);
-}
-
-.usa-text-red {
-	color: var(--usa-red);
-}
-
-.usa-border {
-	border: 2px solid var(--usa-blue);
-}
-
-.usa-border-red {
-	border: 2px solid var(--usa-red);
-}
-
-.patriotic-card {
-	background: linear-gradient(
-		135deg,
-		var(--usa-red-50) 0%,
-		var(--usa-white) 50%,
-		var(--usa-blue-50) 100%
-	);
-	border-radius: 1rem;
-	box-shadow: var(--card-shadow);
-}
-
-.usa-gradient-blue {
-	background: var(--primary-gradient);
-}
-
-.usa-gradient-red {
-	background: var(--secondary-gradient);
-}
-
-/* USA replacement classes for legacy green references */
-.usa-link {
-	color: var(--usa-blue-500);
-	text-decoration: none;
-	transition: color 0.2s;
-}
-
-.usa-link:hover {
-	color: var(--usa-blue-700);
-}
-
-.usa-accent-link {
-	color: var(--usa-red-500);
-	text-decoration: none;
-	transition: color 0.2s;
-}
-
-.usa-accent-link:hover {
-	color: var(--usa-red-700);
-}
-
-/* Text color classes */
-.text-primary {
-	color: var(--usa-blue-500);
-}
-
-.text-secondary {
-	color: var(--usa-red-500);
-}
-
-.text-primary-light {
-	color: var(--usa-blue-300);
-}
-
-.text-secondary-light {
-	color: var(--usa-red-300);
-}
-
-.text-primary-dark {
-	color: var(--usa-blue-700);
-}
-
-.text-secondary-dark {
-	color: var(--usa-red-700);
-}
-
-/* Common layout classes */
-.flex {
-	display: flex;
-}
-
-.flex-col {
-	flex-direction: column;
-}
-
-.items-center {
-	align-items: center;
-}
-
-.justify-center {
-	justify-content: center;
-}
-
-.justify-between {
-	justify-content: space-between;
-}
-
-.grid {
-	display: grid;
-}
-
-.text-center {
-	text-align: center;
-}
-
-.relative {
-	position: relative;
-}
-
-.absolute {
-	position: absolute;
-}
-
-.fixed {
-	position: fixed;
-}
-
-.w-full {
-	width: 100%;
-}
-
-.h-full {
-	height: 100%;
-}
-
-.overflow-hidden {
-	overflow: hidden;
-}
-
-.rounded-lg {
-	border-radius: 0.5rem;
-}
-
-.rounded-xl {
-	border-radius: 0.75rem;
-}
-
-.rounded-2xl {
-	border-radius: 1rem;
-}
-
-.rounded-full {
-	border-radius: 9999px;
-}
-
-/* Hero Section specific styles */
+/* Animation for floating elements */
 @keyframes bounce {
 	0%,
 	100% {
@@ -432,27 +60,312 @@ body {
 	}
 }
 
-.text-gradient {
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
-.hero-heading {
-	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-	letter-spacing: -0.02em;
-	line-height: 1.1;
-}
-
-.hero-button-container {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
+/* Responsive container for hero buttons */
 @media (min-width: 640px) {
 	.hero-button-container {
 		flex-direction: row;
 		width: auto;
 	}
+}
+
+/* Grid background pattern for ProcessSection */
+.bg-grid-pattern {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.15'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Circuit pattern for EnvironmentalImpactSection */
+.bg-circuit-pattern {
+	background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zm-24.565 0l-5.657 5.657 1.415 1.415 7.9-7.9h-2.83zm16.97 0l7.07 7.07-1.414 1.415-8.485-8.485h2.83zm-9.373 0L18.343 7.07l1.415 1.415L28.03 0h-2.83zm-1.657 0L5.516 13.172l1.414 1.414 13.3-13.3h-2.83zm18.657 0l13.172 13.172-1.414 1.414-13.3-13.3h2.83zM33.03 0L21.343 11.686l1.414 1.414L36.856 0h-2.83zm-9.372 0L9.517 15.142l1.414 1.414 16.4-16.4h-2.83zm18.744 0l14.142 14.142-1.414 1.414-16.4-16.4h2.83zM33.886 0l18.8 18.8-1.415 1.414-20.213-20.213h2.83zm-9.37 0L5.644 20.214l1.414 1.414 20.214-20.214h-2.83zm18.742 0L61.03 24.742 59.616 26.156 36.856 0h2.83zM33.03 0L0 35.03l1.414 1.414L36.856 0h-2.83z' fill='%23fff' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Environmental section gradient text */
+.eco-gradient {
+	background: linear-gradient(to right, #10b981, #0ea5e9);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Radial gradient backgrounds */
+.bg-radial-gradient {
+	background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
+/* Custom utilities for 3D transforms */
+.perspective-1000 {
+	perspective: 1000px;
+}
+
+.transform-gpu {
+	transform: translateZ(0);
+}
+
+.preserve-3d {
+	transform-style: preserve-3d;
+}
+
+/* Animation for pulse-slow */
+@keyframes pulse-slow {
+	0% {
+		transform: scale(0.95);
+		opacity: 0.5;
+	}
+	70% {
+		transform: scale(1.05);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(0.95);
+		opacity: 0;
+	}
+}
+
+.animate-pulse-slow {
+	animation: pulse-slow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Reset problematic min-height settings */
+section,
+.container,
+.benefits-card,
+.impact-card,
+.modern-card {
+	min-height: initial !important;
+	height: auto !important;
+}
+
+/* Fix for gallery items */
+[class*="md:row-span-"] {
+	min-height: auto !important;
+}
+
+/* Use flexbox for card content distribution */
+.benefits-card,
+.impact-card,
+.modern-card {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Ensure flex children fill space appropriately */
+.benefits-card > *,
+.impact-card > *,
+.modern-card > * {
+	flex-shrink: 0;
+}
+
+/* Allow descriptions to grow and fill available space */
+.benefits-card p,
+.impact-card p,
+.modern-card p {
+	flex-grow: 1;
+}
+
+/* Additional fixes for photo gallery grid */
+.grid {
+	display: grid;
+}
+
+/* Ensure aspect ratios work properly */
+[class*="aspect-"] {
+	position: relative;
+	width: 100%;
+}
+
+[class*="aspect-"] > div.absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+[class*="aspect-"] img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+/* Fix row issues in PhotoGallerySection */
+@media (min-width: 768px) {
+	#gallery .grid {
+		grid-template-rows: repeat(3, auto);
+		grid-auto-flow: dense;
+	}
+}
+
+/* Additional fixes for contact section */
+#contact .grid {
+	grid-auto-rows: auto;
+}
+
+#contact .grid > div {
+	height: auto !important;
+	min-height: auto !important;
+}
+
+#contact form,
+#contact .bg-white\/5 {
+	height: auto !important;
+}
+
+/* Prevent input fields from growing */
+input,
+textarea,
+select,
+button {
+	flex-shrink: 0;
+}
+
+/* Make sure grid items don't have conflicting height properties */
+.grid > div {
+	height: auto !important;
+}
+
+/* Properly handle grid rows */
+@media (min-width: 1024px) {
+	.lg\:grid-cols-2 {
+		grid-template-rows: auto !important;
+	}
+}
+
+/* Additional centering fixes for ContactSection */
+#contact .max-w-5xl,
+#contact .max-w-7xl {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+/* Ensure all sections are properly centered */
+section > .container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+/* Ensure grid elements inside centered containers behave properly */
+.container .grid {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Fix nested containers that might be affecting centering */
+.container .container {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Fix button styles site-wide */
+button,
+.button,
+[type="button"],
+[type="submit"] {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+}
+
+/* Better button hover effects */
+button:hover,
+.button:hover,
+[type="button"]:hover,
+[type="submit"]:hover {
+	transform: translateY(-1px);
+	transition: transform 0.2s ease;
+}
+
+/* Button active state */
+button:active,
+.button:active,
+[type="button"]:active,
+[type="submit"]:active {
+	transform: translateY(1px);
+}
+
+/* Fix button width constraints */
+.w-full {
+	width: 100%;
+}
+
+@media (min-width: 640px) {
+	.sm\:w-auto {
+		width: auto;
+	}
+}
+/* Add these to your existing styles */
+
+/* Form and card styling helpers */
+.flex-grow {
+	flex-grow: 1;
+}
+
+/* Fix for button alignment */
+@media (min-width: 640px) {
+	.sm\:text-right button {
+		margin-left: auto;
+	}
+}
+
+/* Ensure cards and forms have equal height */
+.grid > div {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Make sure grid takes proper width on mobile */
+@media (max-width: 1023px) {
+	.grid {
+		width: 100%;
+	}
+}
+
+/* Fix for vertical spacing */
+.backdrop-blur-sm {
+	height: 100%;
+}
+
+/* Add these to your existing styles at the end of the file */
+
+/* BenefitsSection specific styles */
+.benefits-card {
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 16px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	transition: all 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	backdrop-filter: blur(8px);
+	overflow: hidden;
+}
+
+.glow-effect {
+	background: radial-gradient(
+		circle at center,
+		rgba(59, 130, 246, 0.07) 0%,
+		rgba(59, 130, 246, 0.03) 40%,
+		transparent 70%
+	);
+}
+
+.pulse-ring {
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	animation: pulse 2.5s infinite;
+	opacity: 0;
+}
+
+.benefits-card:hover .pulse-ring {
+	opacity: 1;
+}
+
+.icon-container {
+	transform-style: preserve-3d;
+	perspective: 1000px;
+}
+
+/* Add benefit card hover animation */
+.benefits-card:hover {
+	transform: translateY(-8px);
 }
